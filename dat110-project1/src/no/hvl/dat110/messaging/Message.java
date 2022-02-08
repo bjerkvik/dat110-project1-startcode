@@ -1,19 +1,18 @@
 package no.hvl.dat110.messaging;
 
-import no.hvl.dat110.TODO;
-
 public class Message {
 
 	private byte[] data;
 
 	public Message(byte[] data) {
-		
-		// TODO - START
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.constructor("Message"));
-			
-		// TODO - END
+		this.data =  data;
+		if (data.length > MessageConfig.SEGMENTSIZE - 1){
+			System.out.println("Dataen er mer enn 127 bytes");
+			this.data = null;
+		} else if (data == null) {
+			System.out.println("Dataen er null");
+		}
+
 	}
 
 	public byte[] getData() {
