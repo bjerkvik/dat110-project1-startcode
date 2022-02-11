@@ -32,7 +32,7 @@ public class Controller  {
 		displayclient.connect();
 		sensorclient.connect();
 
-		for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++){
 			display.write(String.valueOf(sensor.read()));
 
 			try {
@@ -44,7 +44,7 @@ public class Controller  {
 		
 		stopdisplay.stop();
 		stopsensor.stop();
-	
+
 		displayclient.disconnect();
 		sensorclient.disconnect();
 		
