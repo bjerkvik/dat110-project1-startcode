@@ -14,14 +14,13 @@ public class SensorStub extends RPCLocalStub {
 	public int read() {
 		
 		int temp = 0;
-		
-		// TODO - START
+
 		// implement marshalling, call and unmarshalling for read RPC method
-		
-		if (true)
-			throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+
+		byte[] req = RPCUtils.marshallVoid();
+		byte[] resp = rpcclient.call(RPCIDREAD, req);
+
+		temp = RPCUtils.unmarshallInteger(resp);
 		
 		return temp;
 	}

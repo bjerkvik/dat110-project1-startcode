@@ -11,8 +11,6 @@ public class RPCUtils {
 		
 		byte[] rpcmsg = null;
 		
-		// TODO - START
-		
 		// Encapsulate the rpcid and payload in a byte array according to the  RPC message syntax
 		
 		rpcmsg = new byte[payload.length + 1];
@@ -25,16 +23,13 @@ public class RPCUtils {
 			rpcmsg[i+1] = byteBuffer.get(i);
 		}
 		
-		// TODO - END
-		
 		return rpcmsg;
 	}
 	
 	public static byte[] decapsulate(byte[] rpcmsg) {
 		
 		byte[] payload = null;
-		
-		// TODO - START
+
 		
 		// Decapsulate the rpcid and payload in a byte array according to the  RPC message syntax
 
@@ -42,8 +37,6 @@ public class RPCUtils {
 		 for (int i =0; i < payload.length; i++) {
 			 payload[i] = rpcmsg[i+1];
 		 }
-
-		// TODO - END
 		
 		return payload;
 		
@@ -52,39 +45,26 @@ public class RPCUtils {
 	public static byte[] marshallString(String str) {
 		
 		byte[] encoded = null;
-		
-		// TODO - START
 
 		encoded = str.getBytes(StandardCharsets.UTF_8);
-
-
-		// TODO - END
 		
 		return encoded;
 	}
 	
 	public static String unmarshallString(byte[] data) {
 		
-		String decoded = null; 
-		
-		// TODO - START 
+		String decoded = null;
 
 		decoded = new String(data, StandardCharsets.UTF_8);
 
-		// TODO - END
-		
 		return decoded;
 	}
 	
 	public static byte[] marshallVoid() {
 		
 		byte[] encoded = null;
-		
-		// TODO - START
 
 		encoded = new byte[0];
-				
-		// TODO - END
 		
 		return encoded;
 		
@@ -117,8 +97,6 @@ public class RPCUtils {
 	public static byte[] marshallInteger(int x) {
 		
 		byte[] encoded = null;
-		
-		// TODO - START 
 
 		encoded = new byte[4];
 
@@ -128,8 +106,6 @@ public class RPCUtils {
 		for (int i = 0; i < 4; i++) {
 			encoded[i] = byteBuffer.get(i);
 		}
-
-		// TODO - END
 		
 		return encoded;
 	}
@@ -138,12 +114,8 @@ public class RPCUtils {
 	public static int unmarshallInteger(byte[] data) {
 		
 		int decoded = 0;
-		
-		// TODO - START
 
 		decoded = ByteBuffer.wrap(data).getInt();
-
-		// TODO - END
 		
 		return decoded;
 		
